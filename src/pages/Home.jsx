@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <div>
-      <h1>POKÉDEX</h1>
+      <h1>Accueil Pokédex</h1>
     </div>
   );
 };
