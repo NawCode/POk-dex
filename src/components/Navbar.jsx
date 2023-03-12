@@ -1,6 +1,6 @@
-import pokéball from "../assets/pokéball.png";
-
 import { Link } from "react-router-dom";
+
+import pokéball from "../assets/pokéball.png";
 
 const Navbar = () => {
   // Burger menus
@@ -47,13 +47,18 @@ const Navbar = () => {
   return (
     <div className="bg-red-600">
       <nav className="relative px-4 py-4 flex justify-between items-center">
-        <a className="text-3xl font-bold leading-none" href="#">
-          <img
-            className="h-10 cursor-pointer hover:scale-110 transition duration-300"
-            alt="logo"
-            src={pokéball}
-          />
-        </a>
+        <div className="flex flex-row">
+          <a className="" href="#">
+            <img
+              className="h-12 mx-2 mt-0.5 cursor-pointer hover:scale-125 transition duration-300"
+              alt="logo"
+              src={pokéball}
+            />
+          </a>
+          <div className="mx-2 text-white font-border text-5xl font-bold">
+            Pokédex
+          </div>
+        </div>
         <div className="lg:hidden">
           <button className="navbar-burger flex items-center text-blue-600 p-3">
             <svg
