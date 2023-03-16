@@ -1,3 +1,80 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.steel {
+  background-color: rgb(95, 161, 185, 0.9);
+}
+
+.fighting {
+  background-color: rgb(255, 128, 0, 0.9);
+}
+
+.dragon {
+  background-color: rgb(80, 97, 226, 0.9);
+}
+
+.water {
+  background-color: rgb(37, 128, 239, 0.9);
+}
+
+.electric {
+  background-color: rgb(250, 192, 0, 0.9);
+}
+
+.fairy {
+  background-color: rgb(239, 113, 239, 0.9);
+}
+
+.fire {
+  background-color: rgb(231, 35, 35, 0.9);
+}
+
+.ice {
+  background-color: rgb(61, 216, 255, 0.9);
+}
+
+.bug {
+  background-color: rgb(144, 161, 18, 0.9);
+}
+
+.normal {
+  background-color: rgb(160, 162, 160, 0.9);
+}
+
+.grass {
+  background-color: rgb(61, 163, 36, 0.9);
+}
+
+.poison {
+  background-color: rgb(144, 62, 204, 0.9);
+}
+
+.psychic {
+  background-color: rgb(239, 62, 121, 0.9);
+}
+
+.rock {
+  background-color: rgb(176, 170, 130, 0.9);
+}
+
+.ground {
+  background-color: rgb(147, 81, 27, 0.9);
+}
+
+.ghost {
+  background-color: rgb(111, 62, 111, 0.9);
+}
+
+.dark {
+  background-color: rgb(78, 63, 60, 0.9);
+}
+
+.flying {
+  background-color: rgb(129, 185, 239, 0.9);
+}
+
+.font-border {
+  text-shadow: 2px 0 #000000, -2px 0 #000000, 0 2px #000000, 0 -2px #000000,
+    1px 1px #000000, -1px -1px #000000, 1px -1px #000000, -1px 1px #000000;
+}

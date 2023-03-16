@@ -1,9 +1,8 @@
-import Navbar from "../components/Navbar";
-
 import axios from "axios";
-
 import { useEffect, useState } from "react";
-import PokemonCollection from "../components/PokemonCollection";
+
+import Navbar from "../components/Navbar";
+import PokemonList from "../components/PokemonList";
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -13,7 +12,7 @@ const Home = () => {
   useEffect(() => {
     const getPokemon = async () => {
       const res = await axios.get(
-        "https://pokeapi.co/api/v2/pokemon?limit=20&offset=0"
+        "https://pokeapi.co/api/v2/pokemon?limit=30&offset=0"
       );
 
       setNextUrl(res.data.next);
@@ -46,9 +45,9 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <h1>Accueil Pokédex</h1>
-      <div className="justify-center grid grid-cols-4">
-        <PokemonCollection pokemons={pokemons} />
+      <h1 className="m-6 text-6xl font-extrabold">LISTE</h1>
+      <div className="grid grid-cols-5">
+        <PokemonList pokemons={pokemons} />
         <div className="justify-center">
           <button
             onClick={nextPage}
