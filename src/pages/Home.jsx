@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
-import PokemonCollection from "../components/PokemonCollection";
+import PokemonList from "../components/PokemonList";
 
 const Home = () => {
   const [pokemons, setPokemons] = useState([]);
@@ -47,7 +47,7 @@ const Home = () => {
       <Navbar />
       <h1 className="m-6 text-6xl font-extrabold">LISTE</h1>
       <div className="grid grid-cols-5">
-        <PokemonCollection pokemons={pokemons} />
+        <PokemonList pokemons={pokemons} />
         <div className="justify-center">
           <button
             onClick={nextPage}
