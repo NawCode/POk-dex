@@ -72,12 +72,12 @@ const Home = () => {
         hasMore={hasMorePokemonToLoad}
         loader={
           <div className="w-full flex justify-center mb-4">
-            <h4>Loading...</h4>
+            <h4>Chargement...</h4>
           </div>
         }
         endMessage={
           <div className="w-full flex justify-center mb-4">
-            <p>No more Pokemon to load.</p>
+            <p>Plus de Pokémon à afficher</p>
           </div>
         }
       >

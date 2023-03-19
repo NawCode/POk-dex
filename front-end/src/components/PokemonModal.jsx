@@ -29,14 +29,14 @@ const PokemonModal = ({
           <p className="mt-8 text-6xl font-bold leading-tight text-primary">
             {name}
           </p>
-          <img src={image} className="my-2" />
+          <img src={image} />
 
           <div className="flex flex-row">
             {types &&
               types.map((type, index) => (
                 <div
                   key={index}
-                  className={`${type} text-white border-2 border-black rounded-full inline-flex items-center justify-center mx-1 mb-4 w-32`}
+                  className={`${type} text-white border-2 border-black rounded-full inline-flex items-center justify-center mx-1 my-4 w-32`}
                 >
                   <p className="py-1.5 font-semibold uppercase">{type}</p>
                 </div>
@@ -44,12 +44,12 @@ const PokemonModal = ({
           </div>
           <div className="flex">
             <img src={frontSprite} className="w-1/2 pr-1" />
-            <img src={backSprite} className="w-1/2 pr-1" />
+            <img src={backSprite} className="w-1/2 pl-1" />
           </div>
         </div>
         <div className="flex flex-col items-center">
           <div className="flex">
-            <img src={frontSpriteShiny} className="w-1/2 pl-1" />
+            <img src={frontSpriteShiny} className="w-1/2 pr-1" />
             <img src={backSpriteShiny} className="w-1/2 pl-1" />
           </div>
           <button
