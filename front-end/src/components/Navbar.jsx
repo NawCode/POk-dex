@@ -3,6 +3,17 @@ import { Link } from "react-router-dom";
 import pokéball from "../assets/pokéball.png";
 
 const Navbar = () => {
+  const handleClick = (e) => {
+    e.preventDefault();
+    const { pathname } = e.currentTarget;
+
+    if (pathname === window.location.pathname) {
+      window.location.reload(true);
+    } else {
+      window.location.href = pathname;
+    }
+  };
+
   // Burger menus
   document.addEventListener("DOMContentLoaded", function () {
     // open
@@ -73,7 +84,7 @@ const Navbar = () => {
         </div>
         <ul className="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
           <li>
-            <Link to="/">
+            <Link to="/" onClick={handleClick}>
               <div className="text-sm text-white hover:text-gray-500" href="#">
                 Accueil
               </div>
@@ -135,7 +146,7 @@ const Navbar = () => {
               Sign In
             </div>
           </Link>
-          <Link to="signup">
+          <Link to="/signup">
             <div
               className="hidden lg:inline-block py-2 px-6 bg-red-500 hover:bg-red-700 text-sm text-white font-bold rounded-xl transition duration-200"
               href="#"
