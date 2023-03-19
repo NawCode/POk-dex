@@ -3,7 +3,17 @@ import { useState } from "react";
 import PokemonModal from "./PokemonModal";
 
 const PokemonCard = (props) => {
-  const { name, id, image, type } = props;
+  const {
+    name,
+    id,
+    image,
+    frontSprite,
+    frontSpriteShiny,
+    backSprite,
+    backSpriteShiny,
+    type,
+    types,
+  } = props;
 
   const pokeName = name.toUpperCase();
   const pokeId = "#" + ("000" + id).slice(-4);
@@ -22,7 +32,7 @@ const PokemonCard = (props) => {
           className={`${type} relative font-semibold text-center rounded-2xl shadow-lg p-10 max-w-xs m-8 border-black border cursor-pointer group-hover: opacity-100 group-hover:scale-110 duration-700`}
         >
           <img
-            className="bg-white mb-4 w-24 h-24 rounded-full border shadow-lg mx-auto"
+            className="bg-white mb-4 w-32 h-32 rounded-full border shadow-lg mx-auto"
             src={image}
             alt="pokemon sprite"
           />
@@ -36,7 +46,17 @@ const PokemonCard = (props) => {
           </button>
         </div>
       </div>
-      <PokemonModal onClose={handleOnClose} visible={showPokemonModal} />
+      <PokemonModal
+        onClose={handleOnClose}
+        visible={showPokemonModal}
+        name={pokeName}
+        image={image}
+        frontSprite={frontSprite}
+        frontSpriteShiny={frontSpriteShiny}
+        backSprite={backSprite}
+        backSpriteShiny={backSpriteShiny}
+        types={types}
+      />
     </div>
   );
 };
