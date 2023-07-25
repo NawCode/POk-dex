@@ -11,7 +11,7 @@ const Home = () => {
   const [nextUrl, setNextUrl] = useState("");
 
   const MAX_POKEMON_COUNT = 1010;
-  const PAGE_SIZE = 30;
+  const PAGE_SIZE = 50;
 
   useEffect(() => {
     const getPokemon = async () => {
@@ -60,31 +60,85 @@ const Home = () => {
 
   const displayedPokemons = pokemons.slice(0, MAX_POKEMON_COUNT);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+  };
+
   return (
     <div>
       <Navbar />
       <div className="flex items-center h-full">
-        <h1 className="text-6xl font-extrabold mx-auto my-10">LISTE</h1>
+        <h1 className="text-4xl md:text-6xl font-extrabold mx-auto my-6 md:my-10 text-center">
+          TOUS LES POKÉMON
+        </h1>
       </div>
       <InfiniteScroll
         dataLength={displayedPokemons.length}
         next={nextPage}
         hasMore={hasMorePokemonToLoad}
         loader={
-          <div className="w-full flex justify-center mb-4">
+          <div className="w-full flex justify-center mb-8 font-bold">
             <h4>Chargement...</h4>
           </div>
         }
         endMessage={
-          <div className="w-full flex justify-center mb-4">
+          <div className="w-full flex justify-center mb-8 font-bold">
             <p>Plus de Pokémon à afficher</p>
           </div>
         }
       >
-        <div className="grid grid-cols-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
           <PokemonList pokemons={displayedPokemons} />
         </div>
       </InfiniteScroll>
+      <button
+        className="fixed bottom-24 right-8 p-4 rounded-full bg-red-600 text-white shadow-lg transition-all hover:scale-110 md:right-16 md:bottom-32"
+        onClick={scrollToTop}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M5 15l7-7 7 7"
+          />
+        </svg>
+      </button>
+      <button
+        className="fixed bottom-8 right-8 p-4 rounded-full bg-red-600 text-white shadow-lg transition-all hover:scale-110 md:right-16 md:bottom-16"
+        onClick={scrollToBottom}
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M19 9l-7 7-7-7"
+          />
+        </svg>
+      </button>
     </div>
   );
 };

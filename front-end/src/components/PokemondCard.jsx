@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import PokemonModal from "./PokemonModal";
 
@@ -19,15 +19,32 @@ const PokemonCard = (props) => {
   const pokeId = "#" + ("000" + id).slice(-4);
 
   const [showPokemonModal, setShowPokemonModal] = useState(false);
+  const [isLaptopOrComputer, setIsLaptopOrComputer] = useState(
+    window.innerWidth >= 1024
+  );
 
   const handleOnClose = () => setShowPokemonModal(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsLaptopOrComputer(window.innerWidth >= 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div>
       <div className="relative group p-1">
-        <div
-          className={`${type} absolute inset-6 rounded-3xl blur opacity-20 group-hover:opacity-100 duration-700 group-hover:scale-110`}
-        ></div>
+        {isLaptopOrComputer && (
+          <div
+            className={`${type} absolute inset-6 rounded-3xl blur opacity-20 group-hover:opacity-100 duration-700 group-hover:scale-110`}
+          ></div>
+        )}
         <div
           className={`${type} relative font-semibold text-center rounded-2xl shadow-lg p-10 max-w-xs m-8 border-black border cursor-pointer group-hover: opacity-100 group-hover:scale-110 duration-700`}
         >
